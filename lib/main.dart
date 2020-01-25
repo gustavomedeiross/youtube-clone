@@ -58,4 +58,3 @@ class InitialScaffoldWidget extends StatelessWidget {
     );
   }
 }
-
