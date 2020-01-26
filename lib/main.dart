@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/widgets/default_scaffold.dart';
 
 void main() => runApp(App());
 
@@ -20,41 +21,7 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: InitialScaffoldWidget(),
-    );
-  }
-}
-
-class InitialScaffoldWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Initial Scaffold')),
-      body: Center(child: Text('Body')),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.trending_up),
-            title: Text('Trending'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.subscriptions),
-            title: Text('Subscriptions'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.mail),
-            title: Text('Inbox'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.video_library),
-            title: Text('Library'),
-          ),
-        ],
-      ),
+      home: DefaultScaffold(),
     );
   }
 }
