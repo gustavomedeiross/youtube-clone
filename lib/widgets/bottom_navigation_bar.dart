@@ -10,6 +10,9 @@ class DefaultBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      selectedFontSize: 9,
+      unselectedFontSize: 9,
       currentIndex: currentIndex,
       onTap: onTap,
       items: const <BottomNavigationBarItem>[
