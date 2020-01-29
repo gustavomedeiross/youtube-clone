@@ -31,7 +31,33 @@ class _DefaultScaffoldState extends State<DefaultScaffold> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Youtube clone'),
+        title: Container(
+          height: 22,
+          child: Image.asset(
+            'lib/assets/images/logos/yt_logo_rgb_dark.png',
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.videocam),
+            onPressed: () => print('Hello'),
+          ),
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () => print('Hello'),
+          ),
+          IconButton(
+            icon: Container(
+              height: 30,
+              width: 30,
+              child: CircleAvatar(
+                backgroundImage:
+                    AssetImage('lib/assets/images/avatars/zelda.jpg'),
+              ),
+            ),
+            onPressed: () => print('Hello'),
+          ),
+        ],
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: DefaultBottomNavigationBar(
