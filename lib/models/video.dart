@@ -24,7 +24,7 @@ class Video {
         title: json['title'],
         thumbnail: json['thumbnail'],
         views: json['views'],
-        createdAt: json['created_at'],
+        createdAt: DateTime.parse(json['created_at']),
         duration: json['duration'],
         channel: Channel.fromJson(json['channel']));
   }

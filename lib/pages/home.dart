@@ -9,38 +9,41 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   VideoRepository _videoRepository = VideoRepository();
-  List<Video> videos;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: FutureBuilder(
+      child: FutureBuilder<List>(
           future: _videoRepository.getVideos(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasError) {
-              return Text('ERROR!');
+              return Text(snapshot.error.toString());
             }
 
-            if (!snapshot.data) {
-              return CircularProgressIndicator();
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
             }
 
-            return ListView.builder(
-              itemCount: snapshot.data.length,
-              itemBuilder: (context, index) {
-                return Column(children: <Widget>[
-                  Container(
-                    child: Text('hey'),
-                  ),
-                  ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage:
-                          AssetImage(snapshot.data.channel.avatarUrl),
-                    ),
-                  ),
-                ]);
-              },
-            );
+            return Text(snapshot.data.toString());
+
+            // return ListView.builder(
+            //   itemCount: snapshot.data.length,
+            //   itemBuilder: (context, index) {
+            //     return Column(children: <Widget>[
+            //       Container(
+            //         child: Text('hey'),
+            //       ),
+            //       ListTile(
+            //         leading: CircleAvatar(
+            //           backgroundImage:
+            //               AssetImage(snapshot.data.channel.avatarUrl),
+            //         ),
+            //       ),
+            //     ]);
+            //   },
+            // );
           }),
     );
   }
