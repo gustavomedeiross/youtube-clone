@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:youtube_clone/models/video.dart';
 
 class VideoRepository {
-  Future<List> getVideos() async {
+  Future<List<Video>> getVideos() async {
     String rawVideos =
         await rootBundle.loadString('lib/assets/json/videos.json');
 
