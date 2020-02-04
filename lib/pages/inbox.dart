@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_clone/repositories/notification.dart';
 import 'package:youtube_clone/models/notification.dart' as NotificationModel;
+import 'package:youtube_clone/widgets/notification_list_tile.dart';
 
 class Inbox extends StatelessWidget {
   final NotificationRepository _notificationRepository =
@@ -25,7 +26,7 @@ class Inbox extends StatelessWidget {
             return ListView.builder(
               itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int index) {
-                return Text(snapshot.data[index].title);
+                return NotificationListTile(notification: snapshot.data[index]);
               },
             );
           }),
